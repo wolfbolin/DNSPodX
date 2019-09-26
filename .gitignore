@@ -2,3 +2,7 @@
 __pycache__
 key.conf
 *.csv
+setup.py
+build/
+dist/
+DNSPodX.egg-info/

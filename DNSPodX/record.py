@@ -15,7 +15,7 @@ class Record:
         self.ttl = ttl
         self.mx = mx
 
-    def info(self):
+    def detail(self):
         info = {
             'domain': self.domain.name,
             'record_id': self.r_id,
@@ -30,13 +30,13 @@ class Record:
         return info
 
     def create(self):
-        params = self.info()
+        params = self.detail()
         params = util.remove_none(params)
         json_data = util.http_post('Record.Create', self.user.login_token, params)
         return self, json_data
 
     def modify(self):
-        params = self.info()
+        params = self.detail()
         params = util.remove_none(params)
         json_data = util.http_post('Record.Modify', self.user.login_token, params)
         return self, json_data
@@ -60,7 +60,7 @@ class Record:
         json_data = util.http_post('Record.Remark', self.user.login_token, params)
         return self, json_data
 
-    def fetch(self, r_id):
+    def info(self, r_id):
         self.r_id = r_id
         params = {
             'domain': self.domain.name,

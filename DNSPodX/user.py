@@ -8,7 +8,8 @@ class User:
         self.login_token = '{},{}'.format(user_id, token)
 
     def version(self):
-        return util.http_post('Info.Version', self.login_token, {})
+        json_data =  util.http_post('Info.Version', self.login_token, {})
+        return json_data['status']['message'], json_data
 
     def domain_list(self, offset=0, length=50, domain_type=None, group_id=None, keyword=None):
         params = {
