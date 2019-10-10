@@ -5,4 +5,5 @@ key.conf
 setup.py
 build/
 dist/
+Pipfile.lock
 DNSPodX.egg-info/

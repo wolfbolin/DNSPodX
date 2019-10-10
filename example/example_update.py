@@ -8,7 +8,7 @@ if __name__ == '__main__':
     config.read('key.conf', encoding='utf-8')
     user_id = config.get('user', 'id')
     token = config.get('user', 'token')
-    domain_name = 'tinoy.cn'
+    domain_name = config.get('domain', 'target')
 
     user = DNSPodX.User(user_id, token)
     domain = DNSPodX.Domain(user, domain_name)
